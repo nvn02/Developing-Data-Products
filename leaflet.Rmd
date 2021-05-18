@@ -1,0 +1,33 @@
+---
+title: "My Leaflet Map"
+author: "Nithin"
+date: "May 17,2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### Starting Map
+Create a leaflet map object.
+```{r map}
+library(leaflet)
+map <- leaflet() %>% addTiles()
+```
+
+#### Create a marker with a picture of the Taj Mahal.
+```{r}
+tajmahalIcon <- makeIcon(
+   iconUrl = "https://png.pngtree.com/png-clipart/20190520/original/pngtree-travel-and-destination-taj-mahal-icon-with-outline-style-png-image_3993275.jpg",
+   iconWidth = 30*408/255, iconHeight = 30,
+   iconAnchorX = 30*408/255/2, iconAnchorY = 30/2
+)
+```
+
+#### Add the marker to the map and display the map.
+```{r}
+map %>%
+   addTiles() %>%
+   addMarkers(lat=27.1750151, lng=78.0421552,popup='Taj Mahal',icon=tajmahalIcon)
+```

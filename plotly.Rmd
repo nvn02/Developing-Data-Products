@@ -1,0 +1,24 @@
+---
+title: "Developing Data Products Plotly Assignment"
+author: "Nithin"
+date: "18 May 2021"
+output: ioslides_presentation
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning = FALSE,message=FALSE)
+```
+
+## Creating 3d plot of trees dataset using the Girth,Height and Volume variables
+```{r, echo = T}
+suppressPackageStartupMessages(library(plotly))
+p1<-plot_ly(trees, x = trees$Girth ,y=trees$Height, z = trees$Volume,
+            color=~Height,size=~Girth)
+```
+
+## Show 3d scatter plot
+```{r}
+ggplotly(p1)
+```
+
+
+## Thank You
